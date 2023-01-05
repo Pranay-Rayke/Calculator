@@ -1,14 +1,19 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
 package com.mycompany.calculator;
 
 /**
  *
  * @author kanha
  */
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,6 +37,9 @@ public class Calculator implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420, 550);
 		frame.setLayout(null);
+                frame.setResizable(false);
+                frame.getContentPane().setBackground(Color.magenta);
+            
 		
 		textfield = new JTextField();
 		textfield.setBounds(50, 25, 300, 50);
@@ -61,7 +69,9 @@ public class Calculator implements ActionListener{
 		for(int i = 0; i < 9; i++) {
 			functionButton[i].addActionListener(this);
 			functionButton[i].setFont(myFont);
-			functionButton[i].setFocusable(false);	
+			functionButton[i].setFocusable(false);
+                        if(i!=5)
+                        functionButton[i].setBackground(Color.yellow);
 		}
 		
 		for(int i = 0; i < 10; i++) {
@@ -69,15 +79,18 @@ public class Calculator implements ActionListener{
 			numberButton[i].addActionListener(this);
 			numberButton[i].setFont(myFont);
 			numberButton[i].setFocusable(false);
+                        numberButton[i].setBackground(Color.yellow);
 		}
-		negButton.setBounds(50, 430, 100, 50);
-		delButton.setBounds(150, 430, 100, 50);
-		clrButton.setBounds(250, 430, 100, 50);
+		negButton.setBounds(50, 410, 100, 70);
+		delButton.setBounds(150, 410, 100, 70);
+		clrButton.setBounds(250, 410, 100, 70);
 		
 		panel = new JPanel();
 		
 		panel.setBounds(50, 100, 300, 300);
 		panel.setLayout(new GridLayout(4, 4, 10, 10));
+                panel.setBackground(Color.cyan);
+       
 		
 		panel.add(numberButton[1]);
 		panel.add(numberButton[2]);
